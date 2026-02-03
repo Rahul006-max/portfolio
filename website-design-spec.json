@@ -1,0 +1,641 @@
+{
+  "project": {
+    "name": "Rahul P - Data Professional Portfolio",
+    "type": "Personal Portfolio Website",
+    "version": "1.0",
+    "purpose": "Showcase data analytics and data engineering skills to attract entry-level opportunities",
+    "target_audience": [
+      "Recruiters",
+      "Hiring Managers",
+      "Data Teams",
+      "Tech Companies"
+    ]
+  },
+
+  "design_system": {
+    "style": "Neo-Brutalism",
+    "description": "Modern minimalist design with bold borders, hard shadows, and clean geometric shapes",
+    "principles": [
+      "Bold black borders (1.5px)",
+      "Hard shadows (4px 4px 0px)",
+      "Pill-shaped buttons and badges",
+      "Rounded cards (32px radius)",
+      "High contrast elements",
+      "Playful decorative SVG elements"
+    ],
+
+    "colors": {
+      "primary": {
+        "background": "#f0f4f8",
+        "description": "Light blue-grey for main background"
+      },
+      "surface": {
+        "background": "#ffffff",
+        "description": "White for cards and elevated surfaces"
+      },
+      "text": {
+        "primary": "#1a1a1a",
+        "secondary": "#555555",
+        "description": "Black for headings, grey for body text"
+      },
+      "accent": {
+        "primary": "#2563eb",
+        "secondary": "#10b981",
+        "description": "Professional blue and data green"
+      },
+      "borders": "#000000"
+    },
+
+    "typography": {
+      "headings": {
+        "font": "Space Grotesk",
+        "weight": 700,
+        "source": "Google Fonts"
+      },
+      "body": {
+        "font": "Inter",
+        "weight": "400-600",
+        "source": "Google Fonts"
+      },
+      "sizes": {
+        "h1": "3.5rem (desktop: 4.5rem)",
+        "h2": "2.5rem",
+        "h3": "1.5rem",
+        "body": "16px",
+        "subtitle": "1.25rem"
+      }
+    },
+
+    "spacing": {
+      "section_padding": "80px vertical",
+      "card_gap": "24px",
+      "container_max_width": "1200px",
+      "border_radius": {
+        "cards": "32px",
+        "buttons": "50px (pill)",
+        "inputs": "12px",
+        "badges": "20px"
+      }
+    },
+
+    "shadows": {
+      "default": "4px 4px 0px 0px black",
+      "hover": "6px 6px 0px 0px black",
+      "pressed": "none (element moves to shadow position)"
+    }
+  },
+
+  "layout_structure": {
+    "type": "Single Page Application (SPA)",
+    "navigation": "Fixed sticky navbar with smooth scroll",
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero Section",
+        "purpose": "First impression, introduce Rahul",
+        "elements": [
+          "Animated badge with 'Data Professional'",
+          "Typing animation on main heading",
+          "Professional subtitle with role description",
+          "Circular profile photo with decorative border",
+          "Decorative SVG elements (sparkle, squiggle, plus)",
+          "Two CTA buttons (View Projects, Contact Me)"
+        ],
+        "height": "90vh",
+        "background": "Gradient orbs animation"
+      },
+      {
+        "id": "stats",
+        "name": "Stats Section",
+        "purpose": "Quick metrics overview",
+        "elements": [
+          "4 stat cards: Projects, Technologies, Internship, Certifications",
+          "Gradient number styling",
+          "Hover animations"
+        ],
+        "background": "Gradient overlay with radial effects"
+      },
+      {
+        "id": "skills",
+        "name": "Technical Skills",
+        "purpose": "Showcase technical competencies",
+        "layout": "Bento grid (4 cards)",
+        "categories": [
+          "Data Analytics",
+          "Programming & Querying",
+          "Data Engineering",
+          "Tools & Technologies"
+        ],
+        "card_features": [
+          "SVG icons",
+          "Skill lists with custom bullets",
+          "Hover effects with gradient accents",
+          "Neo-brutalist shadows"
+        ]
+      },
+      {
+        "id": "about",
+        "name": "About & Experience",
+        "purpose": "Tell Rahul's story and work history",
+        "elements": [
+          "Professional summary paragraph",
+          "Timeline with vertical line",
+          "Experience entries with badges",
+          "Timeline markers and dates"
+        ],
+        "max_width": "800px"
+      },
+      {
+        "id": "portfolio",
+        "name": "Data Projects",
+        "purpose": "Showcase project portfolio",
+        "layout": "Responsive grid (auto-fit, min 300px)",
+        "projects": 5,
+        "card_structure": [
+          "Featured image (Unsplash)",
+          "Role badge",
+          "Project title",
+          "Description",
+          "Technology tags"
+        ],
+        "hover_effect": "Image zoom, card lift with enhanced shadow"
+      },
+      {
+        "id": "certifications",
+        "name": "Certifications & Learning",
+        "purpose": "Display credentials and career goals",
+        "elements": [
+          "4 certification cards with gradient top border",
+          "Career interests section with styled tags"
+        ],
+        "layout": "Grid (auto-fit, min 250px)"
+      },
+      {
+        "id": "contact",
+        "name": "Contact Form",
+        "purpose": "Enable communication with visitors",
+        "form_fields": ["Name", "Email", "Message"],
+        "features": [
+          "Client-side validation",
+          "Toast notification on submit",
+          "Loading state on button",
+          "Neo-brutalist input styling"
+        ]
+      }
+    ]
+  },
+
+  "interactive_elements": {
+    "navbar": {
+      "type": "Fixed header with floating navbar",
+      "behavior": "Transparent initially, shows background on scroll",
+      "active_state": {
+        "trigger": "Scroll position tracking",
+        "style": "Black background with white text",
+        "offset": "200px before section"
+      },
+      "sticky_behavior": "Fixed at top, always visible"
+    },
+
+    "animations": {
+      "typing_effect": {
+        "target": "Main heading 'Hi, I'm Rahul P'",
+        "duration": "2s",
+        "cursor": "Blinking, removed after animation"
+      },
+      "float": {
+        "targets": ["Hero badge", "Decorative elements", "Background orbs"],
+        "duration": "3-25s",
+        "type": "Infinite ease-in-out"
+      },
+      "shimmer": {
+        "target": "Hero badge",
+        "effect": "Gradient sweep",
+        "duration": "3s infinite"
+      },
+      "hover_animations": {
+        "cards": "Translate up, shadow enhancement",
+        "buttons": "Shadow reduction, translate to shadow position",
+        "images": "Scale 1.05"
+      }
+    },
+
+    "background_effects": {
+      "gradient_orbs": {
+        "count": 2,
+        "colors": ["Blue (#2563eb)", "Green (#10b981)"],
+        "size": ["800px", "700px"],
+        "opacity": 0.1,
+        "animation": "Float in opposite directions"
+      },
+      "section_patterns": {
+        "type": "Diagonal repeating stripes",
+        "opacity": 0.02,
+        "angle": "45deg"
+      }
+    }
+  },
+
+  "technical_implementation": {
+    "file_structure": {
+      "html": "index.html - Semantic HTML5 structure",
+      "css": "styles.css - Modular CSS with CSS variables",
+      "javascript": "script.js - Vanilla JS for interactions",
+      "assets": ["profile.jpg - Profile photo"],
+      "documentation": ["README.md", "CHANGES.md", "SETUP_PHOTO.md"]
+    },
+
+    "css_architecture": {
+      "methodology": "BEM-inspired with utility classes",
+      "custom_properties": "CSS variables for theming",
+      "sections": [
+        "CSS Variables & Design System",
+        "Reset & Global Styles",
+        "Utilities",
+        "Buttons",
+        "Navbar",
+        "Hero Section",
+        "Stats Section",
+        "Skills/Services (Bento Grid)",
+        "Experience (Timeline)",
+        "Portfolio/Projects",
+        "Certifications",
+        "Contact Form",
+        "Footer",
+        "Animations"
+      ]
+    },
+
+    "javascript_features": [
+      "Scroll-based navbar styling",
+      "Active section highlighting in navigation",
+      "Typing animation completion handler",
+      "Smooth scroll for anchor links",
+      "Form submission with validation",
+      "Toast notification system"
+    ],
+
+    "responsive_design": {
+      "approach": "Mobile-first with fluid layouts",
+      "breakpoints": {
+        "mobile": "< 768px",
+        "desktop": ">= 768px"
+      },
+      "techniques": [
+        "CSS Grid with auto-fit/minmax",
+        "Flexible typography (rem units)",
+        "Responsive images",
+        "Viewport-based spacing",
+        "Mobile-optimized navbar"
+      ]
+    }
+  },
+
+  "performance_optimizations": {
+    "images": {
+      "source": "Unsplash CDN with size parameters",
+      "format": "JPG",
+      "lazy_loading": "Native browser support"
+    },
+    "fonts": {
+      "strategy": "Google Fonts with preconnect",
+      "subsets": "Latin only",
+      "display": "swap"
+    },
+    "css": {
+      "single_file": true,
+      "minification": "Recommended for production",
+      "critical_css": "Inline option available"
+    },
+    "javascript": {
+      "vanilla": "No framework dependencies",
+      "size": "< 2KB",
+      "async_loading": "Possible"
+    }
+  },
+
+  "accessibility": {
+    "semantic_html": true,
+    "aria_labels": "Social icons, form elements",
+    "keyboard_navigation": "Full support",
+    "focus_states": "Visible on all interactive elements",
+    "color_contrast": "WCAG AA compliant",
+    "alt_text": "All images have descriptive alt attributes"
+  },
+
+  "content_strategy": {
+    "tone": "Professional, approachable, confident",
+    "keywords": [
+      "Data Analyst",
+      "Data Engineer",
+      "Python",
+      "SQL",
+      "ETL",
+      "Data Visualization",
+      "Analytics",
+      "Business Intelligence"
+    ],
+    "seo": {
+      "title": "Rahul P - Data Analyst & Data Engineer Portfolio",
+      "meta_description": "Portfolio of Rahul P - Aspiring Data Analyst and Data Engineer with experience in data analytics, ETL pipelines, and backend development",
+      "semantic_structure": "Proper heading hierarchy (h1-h4)"
+    }
+  },
+
+  "unique_features": {
+    "neo_brutalist_aesthetic": {
+      "description": "Bold, unapologetic design with thick borders and flat shadows",
+      "inspiration": "Modern web design trend combining brutalism with playful elements"
+    },
+    "data_focused_theme": {
+      "colors": "Blue and green representing data and growth",
+      "imagery": "Data visualization, analytics, technology themes",
+      "terminology": "Industry-specific language"
+    },
+    "interactive_storytelling": {
+      "typing_effect": "Creates engagement on page load",
+      "scroll_revealing": "Active navigation guides user journey",
+      "hover_feedback": "Rich interactions on all touchpoints"
+    },
+    "recruiter_optimized": {
+      "quick_stats": "Immediate metrics visibility",
+      "clear_sections": "Easy to scan and navigate",
+      "ats_friendly": "Proper semantic structure and keywords",
+      "contact_form": "Low-friction communication method"
+    }
+  },
+
+  "browser_support": {
+    "modern_browsers": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+    "features_requiring_support": [
+      "CSS Grid",
+      "CSS Custom Properties",
+      "CSS Animations",
+      "IntersectionObserver (for future enhancements)",
+      "Flexbox"
+    ]
+  },
+
+  "future_enhancements": {
+    "tier_1_must_have": [
+      {
+        "feature": "Project Deep-Dive Modals",
+        "priority": "High",
+        "description": "Each project card opens a modal with problem statement, dataset description, analytical approach, SQL/Python snippets, key insights, business impact, and tools used",
+        "ui_design": "Slide-up modal with neo-brutalist borders and hard shadows",
+        "data_source": "Static JSON project metadata",
+        "implementation": {
+          "html": "Modal overlay with close button",
+          "css": "Fixed position, z-index: 2000, backdrop blur",
+          "js": "Click handler to show/hide modal with project data"
+        }
+      },
+      {
+        "feature": "Featured Case Study Section",
+        "priority": "High",
+        "description": "Full-width case study highlighting a real-world data problem, solution steps, visualizations, and measurable outcomes",
+        "ui_design": "Timeline layout with charts and insight callouts",
+        "data_source": "Static content",
+        "sections": [
+          "Problem Statement",
+          "Dataset Overview",
+          "Analytical Approach",
+          "Key Findings",
+          "Business Impact",
+          "Technologies Used"
+        ]
+      },
+      {
+        "feature": "Skill Confidence Visualization",
+        "priority": "High",
+        "description": "Visual representation of skill proficiency using progress bars with percentage labels",
+        "ui_design": "Hard-bordered bars with neo-brutalist shadows and percentage indicators",
+        "data_source": "Static skill JSON with proficiency levels",
+        "categories": {
+          "data_analytics": ["Python: 85%", "SQL: 90%", "Excel: 80%"],
+          "visualization": ["Power BI: 75%", "Matplotlib: 80%"],
+          "engineering": ["ETL: 70%", "APIs: 75%"]
+        }
+      },
+      {
+        "feature": "Resume & Case Study Downloads",
+        "priority": "High",
+        "description": "Downloadable resume PDF and 1-page case study with clear CTAs",
+        "ui_design": "Bold pill buttons with download icon and neo-brutalist styling",
+        "data_source": "Static PDF files",
+        "placement": "Hero section and footer",
+        "files": ["resume.pdf", "case-study.pdf"]
+      },
+      {
+        "feature": "How I Think About Data",
+        "priority": "High",
+        "description": "Short bullet points explaining analytical thinking, decision-making, and data philosophy",
+        "ui_design": "Highlighted quote-style card with gradient accent border",
+        "data_source": "Static text content",
+        "content_examples": [
+          "Data tells stories, but context gives them meaning",
+          "Every dataset has a question waiting to be answered",
+          "Clean data is the foundation of reliable insights",
+          "Visualization is not decoration—it's communication"
+        ]
+      }
+    ],
+
+    "tier_2_differentiators": [
+      {
+        "feature": "Interactive Mini Dashboard",
+        "priority": "Medium",
+        "description": "Simple interactive chart or metric toggle demonstrating live data interaction skills",
+        "ui_design": "Card-based dashboard with dropdown selector and Chart.js visualization",
+        "data_source": "Static JSON dataset",
+        "chart_types": ["Bar chart", "Line chart", "Pie chart"],
+        "interactivity": "Filter by category, date range, or metric type"
+      },
+      {
+        "feature": "Learning Timeline",
+        "priority": "Medium",
+        "description": "Chronological visual showing growth from fundamentals to advanced data skills",
+        "ui_design": "Vertical timeline with milestone badges and skill icons",
+        "data_source": "Static timeline JSON",
+        "milestones": [
+          "Started BCA - Computer Science Fundamentals",
+          "First Python Project - Data Cleaning",
+          "SQL Mastery - Complex Joins & Subqueries",
+          "SDE Internship - Production Data Pipelines",
+          "Advanced Analytics - Machine Learning Basics"
+        ]
+      },
+      {
+        "feature": "SQL Query Playground (Read-Only)",
+        "priority": "Medium",
+        "description": "Fake SQL editor UI showing sample queries and outputs to demonstrate SQL skills",
+        "ui_design": "Code editor style card with syntax highlighting and Run button",
+        "data_source": "Static query-output mapping",
+        "sample_queries": [
+          "Customer segmentation query",
+          "Sales trend analysis",
+          "Top performers ranking"
+        ]
+      },
+      {
+        "feature": "Micro Testimonials",
+        "priority": "Medium",
+        "description": "Short credibility quotes from mentors, professors, or collaborators",
+        "ui_design": "Quote cards with avatars and neo-brutalist borders",
+        "data_source": "Static testimonials JSON",
+        "placement": "Between projects and certifications sections"
+      },
+      {
+        "feature": "Recruiter Mode Toggle",
+        "priority": "Medium",
+        "description": "Toggle that reduces animations and highlights key information for quick scanning",
+        "ui_design": "Top-right switch with briefcase icon",
+        "behavior": {
+          "animations": "Disabled",
+          "layout": "Compressed",
+          "highlights": "Resume download, contact form, key projects",
+          "preference": "Saved to localStorage"
+        }
+      }
+    ],
+
+    "tier_3_design_polish": [
+      {
+        "feature": "Neo-brutalist SVG Section Dividers",
+        "description": "Custom SVG shapes between sections for visual rhythm"
+      },
+      {
+        "feature": "Custom Cursor States",
+        "description": "Branded cursor for hover states on interactive elements"
+      },
+      {
+        "feature": "Dark Mode with Inverted Brutalist Palette",
+        "description": "Dark background with neon accents, maintaining hard shadows",
+        "colors": {
+          "background": "#1a1a1a",
+          "surface": "#2a2a2a",
+          "accent_primary": "#60a5fa",
+          "accent_secondary": "#34d399",
+          "borders": "#ffffff"
+        }
+      },
+      {
+        "feature": "Scroll Reveal Animations",
+        "description": "Elements fade and slide in as user scrolls using IntersectionObserver"
+      },
+      {
+        "feature": "Strong Footer CTA",
+        "description": "Clear call-to-action encouraging contact and resume download"
+      }
+    ],
+
+    "tier_4_advanced_optional": [
+      {
+        "feature": "Portfolio Interaction Analytics",
+        "description": "Track project views, resume downloads, time on page",
+        "tools": "Google Analytics 4 or Plausible"
+      },
+      {
+        "feature": "Blog / Data Notes Section",
+        "description": "Short articles about data insights, learning experiences",
+        "cms": "Markdown files or headless CMS"
+      },
+      {
+        "feature": "Project Tag Filtering",
+        "description": "Filter projects by technology, role, or domain",
+        "ui": "Tag buttons with active state styling"
+      },
+      {
+        "feature": "Command Palette Navigation",
+        "description": "Keyboard shortcut (Cmd/Ctrl + K) to quickly navigate",
+        "shortcuts": ["⌘K → Search", "⌘P → Projects", "⌘C → Contact"]
+      },
+      {
+        "feature": "Page Transition Animations",
+        "description": "Smooth transitions when navigating between sections",
+        "library": "Custom CSS or GSAP"
+      }
+    ]
+  },
+
+  "success_metrics": {
+    "engagement": [
+      "Resume download count",
+      "Project modal open rate",
+      "Average time on page",
+      "Case study section views"
+    ],
+    "conversion": [
+      "Contact form submissions",
+      "Email clicks",
+      "LinkedIn profile visits"
+    ],
+    "technical": [
+      "Page load time < 2s",
+      "Lighthouse score > 90",
+      "Mobile usability 100%"
+    ]
+  },
+
+  "implementation_roadmap": {
+    "phase_1_foundation": {
+      "status": "Complete",
+      "features": [
+        "Basic portfolio structure",
+        "Neo-brutalist design system",
+        "Responsive layout",
+        "Contact form",
+        "Project cards"
+      ]
+    },
+    "phase_2_enhancement": {
+      "status": "In Progress",
+      "timeline": "Week 1-2",
+      "features": [
+        "Project deep-dive modals",
+        "Skill confidence bars",
+        "Resume download buttons",
+        "Data philosophy section"
+      ]
+    },
+    "phase_3_differentiation": {
+      "status": "Planned",
+      "timeline": "Week 3-4",
+      "features": [
+        "Featured case study",
+        "Interactive mini dashboard",
+        "Learning timeline",
+        "Testimonials section"
+      ]
+    },
+    "phase_4_polish": {
+      "status": "Future",
+      "timeline": "Month 2+",
+      "features": [
+        "Dark mode",
+        "Advanced animations",
+        "Analytics integration",
+        "Blog section"
+      ]
+    }
+  },
+
+  "deployment": {
+    "hosting_options": [
+      "GitHub Pages (recommended)",
+      "Netlify",
+      "Vercel",
+      "Traditional web hosting"
+    ],
+    "requirements": {
+      "static_site": true,
+      "server_side": false,
+      "database": false,
+      "build_process": "None (plain HTML/CSS/JS)"
+    },
+    "custom_domain": {
+      "recommended": "rahulp.dev or similar",
+      "setup": "DNS configuration with hosting provider"
+    }
+  }
+}
