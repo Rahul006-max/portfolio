@@ -8,15 +8,45 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Navbar scroll effect and active section highlighting
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
+// --- Dark Mode Toggle ---
+document.addEventListener("DOMContentLoaded", function () {
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem("theme") || "light";
+  if (currentTheme === "dark") {
+    body.classList.add("dark-mode");
   }
 
+  // Toggle theme
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      body.classList.toggle("dark-mode");
+
+      // Save preference
+      const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+    });
+  }
+});
+
+// --- Scroll Progress Indicator ---
+window.addEventListener("scroll", function () {
+  const scrollProgress = document.getElementById("scrollProgress");
+  if (scrollProgress) {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
+
+    const scrollPercentage =
+      (scrollTop / (documentHeight - windowHeight)) * 100;
+    scrollProgress.style.width = scrollPercentage + "%";
+  }
+});
+
+// Active section highlighting in navbar
+window.addEventListener("scroll", function () {
   // Highlight active section in navbar
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
@@ -33,7 +63,12 @@ window.addEventListener("scroll", function () {
 
   navLinks.forEach((link) => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
+    const href = link.getAttribute("href");
+    // Check if href matches current section or if we're on a different page, highlight based on page
+    if (
+      href === `#${current}` ||
+      (current === "skills" && href === "skills.html")
+    ) {
       link.classList.add("active");
     }
   });
@@ -240,4 +275,321 @@ document.addEventListener("DOMContentLoaded", () => {
   if (skillBarsContainer) {
     skillBarObserver.observe(skillBarsContainer);
   }
+});
+
+// --- Interactive Dashboard with Chart.js ---
+let currentChart = null;
+
+const chartData = {
+  bar: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Revenue ($K)",
+        data: [32, 45, 38, 52, 48, 61],
+        backgroundColor: "rgba(37, 99, 235, 0.8)",
+        borderColor: "#000",
+        borderWidth: 2,
+      },
+    ],
+  },
+  line: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Growth Rate (%)",
+        data: [5, 12, 8, 18, 15, 22],
+        backgroundColor: "rgba(16, 185, 129, 0.2)",
+        borderColor: "rgba(16, 185, 129, 1)",
+        borderWidth: 3,
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  },
+  pie: {
+    labels: ["Electronics", "Clothing", "Home & Garden", "Sports", "Books"],
+    datasets: [
+      {
+        label: "Product Mix",
+        data: [35, 25, 20, 12, 8],
+        backgroundColor: [
+          "rgba(37, 99, 235, 0.8)",
+          "rgba(16, 185, 129, 0.8)",
+          "rgba(245, 158, 11, 0.8)",
+          "rgba(239, 68, 68, 0.8)",
+          "rgba(139, 92, 246, 0.8)",
+        ],
+        borderColor: "#000",
+        borderWidth: 2,
+      },
+    ],
+  },
+};
+
+function initChart(type = "bar") {
+  const ctx = document.getElementById("dataChart");
+  if (!ctx) return;
+
+  if (currentChart) {
+    currentChart.destroy();
+  }
+
+  currentChart = new Chart(ctx, {
+    type: type,
+    data: chartData[type],
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            font: {
+              family: "'Space Grotesk', sans-serif",
+              size: 12,
+              weight: "600",
+            },
+          },
+        },
+      },
+      scales:
+        type !== "pie"
+          ? {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                ticks: {
+                  font: {
+                    family: "'Inter', sans-serif",
+                  },
+                },
+              },
+              x: {
+                grid: {
+                  display: false,
+                },
+                ticks: {
+                  font: {
+                    family: "'Inter', sans-serif",
+                  },
+                },
+              },
+            }
+          : {},
+    },
+  });
+}
+
+// Initialize chart on page load
+document.addEventListener("DOMContentLoaded", () => {
+  initChart("bar");
+
+  // Chart type selector
+  const chartSelector = document.getElementById("chartType");
+  if (chartSelector) {
+    chartSelector.addEventListener("change", (e) => {
+      initChart(e.target.value);
+    });
+  }
+});
+
+// --- Learning Timeline Animation ---
+document.addEventListener("DOMContentLoaded", () => {
+  const learningItems = document.querySelectorAll(".learning-item");
+
+  const learningObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("aos-animate");
+          }, index * 150); // Stagger animation
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  learningItems.forEach((item) => {
+    learningObserver.observe(item);
+  });
+});
+// --- Counter Animation for Stats ---
+document.addEventListener("DOMContentLoaded", () => {
+  const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+  let hasAnimated = false;
+
+  const animateCounter = (element, target) => {
+    const duration = 2000; // 2 seconds
+    const increment = target / (duration / 16); // 60 FPS
+    let current = 0;
+
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        element.textContent = Math.ceil(current) + "+";
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target + "+";
+      }
+    };
+
+    updateCounter();
+  };
+
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          statNumbers.forEach((stat) => {
+            const target = parseInt(stat.getAttribute("data-target"));
+            animateCounter(stat, target);
+          });
+        }
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  const statsContainer = document.querySelector(".stats-container");
+  if (statsContainer) {
+    statsObserver.observe(statsContainer);
+  }
+});
+
+// --- Scroll to Top Button ---
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollToTopBtn = document.getElementById("scrollToTop");
+
+  // Show/hide button based on scroll position
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add("visible");
+    } else {
+      scrollToTopBtn.classList.remove("visible");
+    }
+  });
+
+  // Scroll to top on click
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});
+
+// --- Keyboard Shortcuts ---
+document.addEventListener("DOMContentLoaded", () => {
+  const shortcutsHelper = document.getElementById("shortcutsHelper");
+  let shortcutsVisible = false;
+
+  // Toggle shortcuts helper with '?' key
+  document.addEventListener("keydown", (e) => {
+    // Ignore if user is typing in an input/textarea
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+      return;
+    }
+
+    switch (e.key.toLowerCase()) {
+      case "h":
+        e.preventDefault();
+        document.getElementById("hero").scrollIntoView({ behavior: "smooth" });
+        break;
+      case "s":
+        e.preventDefault();
+        document
+          .getElementById("skills")
+          .scrollIntoView({ behavior: "smooth" });
+        break;
+      case "p":
+        e.preventDefault();
+        document
+          .getElementById("projects")
+          .scrollIntoView({ behavior: "smooth" });
+        break;
+      case "c":
+        e.preventDefault();
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
+        break;
+      case "d":
+        e.preventDefault();
+        // Trigger dark mode toggle
+        document.getElementById("darkModeToggle").click();
+        break;
+      case "?":
+        e.preventDefault();
+        shortcutsVisible = !shortcutsVisible;
+        if (shortcutsVisible) {
+          shortcutsHelper.classList.add("visible");
+        } else {
+          shortcutsHelper.classList.remove("visible");
+        }
+        break;
+      case "escape":
+        e.preventDefault();
+        shortcutsHelper.classList.remove("visible");
+        shortcutsVisible = false;
+        // Close any open modals
+        const openModal = document.querySelector(".project-modal.active");
+        if (openModal) {
+          openModal.classList.remove("active");
+        }
+        break;
+    }
+  });
+
+  // Hide shortcuts on click outside
+  document.addEventListener("click", (e) => {
+    if (!shortcutsHelper.contains(e.target) && shortcutsVisible) {
+      shortcutsHelper.classList.remove("visible");
+      shortcutsVisible = false;
+    }
+  });
+});
+
+// --- Copy to Clipboard Notification ---
+function showCopyNotification(message) {
+  // Create notification element if it doesn't exist
+  let notification = document.getElementById("copyNotification");
+  if (!notification) {
+    notification = document.createElement("div");
+    notification.id = "copyNotification";
+    notification.className = "copy-notification";
+    document.body.appendChild(notification);
+  }
+
+  notification.textContent = message;
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 2000);
+}
+
+// Make email clickable with copy functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+  emailLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const email = link.href.replace("mailto:", "");
+      navigator.clipboard
+        .writeText(email)
+        .then(() => {
+          showCopyNotification("Email copied to clipboard!");
+        })
+        .catch(() => {
+          console.log("Copy failed, opening email client...");
+        });
+    });
+  });
 });

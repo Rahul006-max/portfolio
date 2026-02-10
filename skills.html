@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills & Journey - Rahul P | Data Analyst & Data Engineer</title>
+    <meta
+      name="description"
+      content="Explore my technical skills, data philosophy, interactive dashboard, and learning journey in data analytics and engineering."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js for Interactive Dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Header Navigation -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="skills.html" class="nav-link active">Skills</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#projects" class="nav-link">Projects</a>
+          <a href="index.html#certifications" class="nav-link"
+            >Certifications</a
+          >
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <!-- Dark Mode Toggle -->
+          <button
+            class="theme-toggle"
+            id="darkModeToggle"
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back Button (Top Left) -->
+    <a href="index.html" class="back-button" aria-label="Back to home">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </a>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="hero container"
+        style="
+          min-height: 50vh;
+          padding-top: 120px;
+          padding-bottom: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        "
+      >
+        <h1
+          class="section-title"
+          style="
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: static;
+            transform: none;
+            display: block;
+            width: 100%;
+            left: auto;
+          "
+        >
+          Skills & Expertise
+        </h1>
+        <p
+          class="hero-subtitle"
+          style="
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+          "
+        >
+          A comprehensive overview of my technical skills, data philosophy, and
+          learning journey in data analytics and engineering.
+        </p>
+      </section>
+
+      <!-- Technical Skills Section -->
+      <section id="technical-skills" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="bento-grid">
+            <!-- Data Analytics -->
+            <article class="bento-card">
+              <div>
+                <svg
+                  class="bento-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="20" x2="12" y2="10"></line>
+                  <line x1="18" y1="20" x2="18" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="16"></line>
+                </svg>
+                <h3>Data Analytics</h3>
+                <ul class="skill-list">
+                  <li>Data Cleaning & Preprocessing</li>
+                  <li>Exploratory Data Analysis</li>
+                  <li>KPI & Metrics Analysis</li>
+                  <li>Data Visualization</li>
+                  <li>Dashboard Design</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Programming -->
+            <article class="bento-card">
+              <div>
+                <svg
+                  class="bento-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <h3>Programming & Querying</h3>
+                <ul class="skill-list">
+                  <li>Python (Pandas, NumPy, Matplotlib)</li>
+                  <li>SQL (Joins, Aggregations)</li>
+                  <li>Excel (Pivot Tables, Charts)</li>
+                  <li>APIs & Data Extraction</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Data Engineering -->
+            <article class="bento-card">
+              <div>
+                <svg
+                  class="bento-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+                <h3>Data Engineering</h3>
+                <ul class="skill-list">
+                  <li>ETL / ELT Concepts</li>
+                  <li>Data Pipelines</li>
+                  <li>Data Modeling (Star Schema)</li>
+                  <li>CSV & JSON Handling</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Tools & Software -->
+            <article class="bento-card">
+              <div>
+                <svg
+                  class="bento-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  ></path>
+                </svg>
+                <h3>Tools & Technologies</h3>
+                <ul class="skill-list">
+                  <li>Git & GitHub</li>
+                  <li>Power BI</li>
+                  <li>Node.js & FastAPI</li>
+                  <li>REST APIs</li>
+                  <li>Vector Databases</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <!-- Skill Confidence Levels -->
+          <div
+            style="
+              margin-top: 80px;
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <h3
+              style="
+                text-align: center;
+                margin-bottom: 50px;
+                font-size: 2rem;
+                font-weight: 700;
+              "
+            >
+              Skill Proficiency
+            </h3>
+            <div class="skill-bars-container">
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Python (Pandas, NumPy)</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">SQL (Joins, Aggregations)</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Excel & Power BI</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Data Visualization</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">ETL Pipelines</span>
+                  <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 70%"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span class="skill-name">APIs & Backend Development</span>
+                  <span class="skill-percentage">75%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Philosophy Section -->
+      <section class="philosophy-section">
+        <div class="container">
+          <div class="philosophy-card">
+            <h2
+              style="text-align: center; margin-bottom: 40px; font-size: 2.5rem"
+            >
+              How I Think About Data
+            </h2>
+            <div class="philosophy-grid">
+              <div class="philosophy-item">
+                <div class="philosophy-number">01</div>
+                <p>Data tells stories, but context gives them meaning</p>
+              </div>
+              <div class="philosophy-item">
+                <div class="philosophy-number">02</div>
+                <p>Every dataset has a question waiting to be answered</p>
+              </div>
+              <div class="philosophy-item">
+                <div class="philosophy-number">03</div>
+                <p>Clean data is the foundation of reliable insights</p>
+              </div>
+              <div class="philosophy-item">
+                <div class="philosophy-number">04</div>
+                <p>Visualization is not decoration—it's communication</p>
+              </div>
+              <div class="philosophy-item">
+                <div class="philosophy-number">05</div>
+                <p>
+                  Question assumptions, validate with data, iterate on insights
+                </p>
+              </div>
+              <div class="philosophy-item">
+                <div class="philosophy-number">06</div>
+                <p>The best analysis drives action and creates impact</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Dashboard Section -->
+      <section id="dashboard" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Data Insights Dashboard</h2>
+          <div class="dashboard-card">
+            <div class="dashboard-header">
+              <h3>Sample Sales Analysis</h3>
+              <div class="dashboard-controls">
+                <label
+                  for="chartType"
+                  style="font-weight: 600; margin-right: 10px"
+                  >View:</label
+                >
+                <select id="chartType" class="dashboard-select">
+                  <option value="bar">Monthly Revenue</option>
+                  <option value="line">Growth Trend</option>
+                  <option value="pie">Product Mix</option>
+                </select>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="dataChart"></canvas>
+            </div>
+            <div class="dashboard-stats">
+              <div class="stat-box">
+                <div class="stat-value" id="totalRevenue">$248K</div>
+                <div class="stat-title">Total Revenue</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="avgGrowth">+18%</div>
+                <div class="stat-title">Avg. Growth</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="topProduct">Electronics</div>
+                <div class="stat-title">Top Category</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learning Timeline Section -->
+      <section id="learning-timeline" class="section">
+        <div class="container">
+          <h2 class="section-title">My Data Journey</h2>
+          <div class="learning-timeline">
+            <div class="learning-item" data-aos="fade-up">
+              <div class="learning-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learning-content">
+                <div class="learning-badge">Foundation</div>
+                <h3>BCA Student - Building Computer Science Foundation</h3>
+                <p>
+                  Currently pursuing Bachelor of Computer Applications (2nd
+                  Year). Learning programming, data structures, algorithms, and
+                  database management. Developing strong analytical and
+                  problem-solving skills.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item" data-aos="fade-up">
+              <div class="learning-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div class="learning-content">
+                <div class="learning-badge">First Project</div>
+                <h3>First Python Project - Data Cleaning</h3>
+                <p>
+                  Applied Pandas and NumPy to clean and preprocess real-world
+                  datasets. Learned data transformation, handling missing
+                  values, and data quality assurance.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item" data-aos="fade-up">
+              <div class="learning-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="learning-content">
+                <div class="learning-badge">Mastery</div>
+                <h3>SQL Mastery - Complex Joins & Analytics</h3>
+                <p>
+                  Mastered advanced SQL: complex joins, window functions, CTEs,
+                  and query optimization. Built analytics queries for business
+                  insights.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item" data-aos="fade-up">
+              <div class="learning-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <div class="learning-content">
+                <div class="learning-badge">Professional</div>
+                <h3>Data Analytics Internship - Real-World Experience</h3>
+                <p>
+                  Gained hands-on experience analyzing business data, creating
+                  dashboards, and building data pipelines. Worked with SQL
+                  databases, Python scripts, and visualization tools to deliver
+                  actionable insights.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item" data-aos="fade-up">
+              <div class="learning-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learning-content">
+                <div class="learning-badge">Advanced</div>
+                <h3>Advanced Analytics - ML & Data Engineering</h3>
+                <p>
+                  Exploring machine learning fundamentals, RAG pipelines, vector
+                  databases, and advanced data engineering concepts. Building
+                  end-to-end data solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Rahul P. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+
+    <!-- Keyboard Shortcuts Helper -->
+    <div id="shortcutsHelper" class="shortcuts-helper">
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li><kbd>H</kbd> <span>Home</span></li>
+        <li><kbd>S</kbd> <span>Skills</span></li>
+        <li><kbd>P</kbd> <span>Projects</span></li>
+        <li><kbd>C</kbd> <span>Contact</span></li>
+        <li><kbd>D</kbd> <span>Toggle Dark Mode</span></li>
+        <li><kbd>?</kbd> <span>Show/Hide Shortcuts</span></li>
+        <li><kbd>Esc</kbd> <span>Close Modals</span></li>
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -19,19 +19,63 @@
 
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Chart.js for Interactive Dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   </head>
   <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress">
+      <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
     <!-- Navbar -->
     <header>
       <nav class="navbar">
         <div class="nav-links">
           <a href="#hero" class="nav-link">Home</a>
-          <a href="#skills" class="nav-link">Skills</a>
+          <a href="skills.html" class="nav-link">Skills</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#portfolio" class="nav-link">Projects</a>
           <a href="#certifications" class="nav-link">Certifications</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            class="sun-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="moon-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
       </nav>
     </header>
 
@@ -119,19 +163,19 @@
         <div class="container">
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-number">5+</div>
+              <div class="stat-number" data-target="5">5+</div>
               <div class="stat-label">Data Projects</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">3+</div>
+              <div class="stat-number" data-target="10">10+</div>
               <div class="stat-label">Technologies</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">1+</div>
+              <div class="stat-number" data-target="1">1+</div>
               <div class="stat-label">Internship</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">4+</div>
+              <div class="stat-number" data-target="4">4+</div>
               <div class="stat-label">Certifications</div>
             </div>
           </div>
@@ -245,121 +289,16 @@
             </article>
           </div>
 
-          <!-- Skill Confidence Levels -->
-          <div style="margin-top: 80px">
-            <h3
-              style="text-align: center; margin-bottom: 40px; font-size: 2rem"
+          <div style="margin-top: 40px; text-align: center">
+            <a href="skills.html" class="btn btn-primary"
+              >View Detailed Skills & Journey</a
             >
-              Skill Proficiency
-            </h3>
-            <div class="skill-bars-container">
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">Python (Pandas, NumPy)</span>
-                  <span class="skill-percentage">85%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 85%"></div>
-                </div>
-              </div>
-
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">SQL (Joins, Aggregations)</span>
-                  <span class="skill-percentage">90%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 90%"></div>
-                </div>
-              </div>
-
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">Excel & Power BI</span>
-                  <span class="skill-percentage">80%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 80%"></div>
-                </div>
-              </div>
-
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">Data Visualization</span>
-                  <span class="skill-percentage">80%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 80%"></div>
-                </div>
-              </div>
-
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">ETL Pipelines</span>
-                  <span class="skill-percentage">70%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 70%"></div>
-                </div>
-              </div>
-
-              <div class="skill-bar-item">
-                <div class="skill-bar-header">
-                  <span class="skill-name">APIs & Backend Development</span>
-                  <span class="skill-percentage">75%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Data Philosophy Section -->
-      <section class="philosophy-section">
-        <div class="container">
-          <div class="philosophy-card">
-            <h2
-              style="text-align: center; margin-bottom: 40px; font-size: 2.5rem"
-            >
-              How I Think About Data
-            </h2>
-            <div class="philosophy-grid">
-              <div class="philosophy-item">
-                <div class="philosophy-number">01</div>
-                <p>Data tells stories, but context gives them meaning</p>
-              </div>
-              <div class="philosophy-item">
-                <div class="philosophy-number">02</div>
-                <p>Every dataset has a question waiting to be answered</p>
-              </div>
-              <div class="philosophy-item">
-                <div class="philosophy-number">03</div>
-                <p>Clean data is the foundation of reliable insights</p>
-              </div>
-              <div class="philosophy-item">
-                <div class="philosophy-number">04</div>
-                <p>Visualization is not decoration—it's communication</p>
-              </div>
-              <div class="philosophy-item">
-                <div class="philosophy-number">05</div>
-                <p>
-                  Question assumptions, validate with data, iterate on insights
-                </p>
-              </div>
-              <div class="philosophy-item">
-                <div class="philosophy-number">06</div>
-                <p>The best analysis drives action and creates impact</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       <!-- About/Experience Section -->
-      <section id="about" class="section">
+      <section id="about" class="section section-alt">
         <div class="container">
           <h2 class="section-title">About Me & Experience</h2>
 
@@ -378,12 +317,12 @@
                 color: var(--text-secondary);
               "
             >
-              I'm a BCA student (2nd Year) focused on Data Analytics and Data
-              Engineering with hands-on experience working with real-world
-              datasets, APIs, and backend systems. I specialize in cleaning,
-              transforming, analyzing, and visualizing data to extract
-              meaningful insights. My goal is to build scalable, reliable data
-              systems that support intelligent decision-making.
+              I'm a passionate BCA student (2nd Year) specializing in Data
+              Analytics and Data Engineering. As a student, I've gained hands-on
+              experience working with real-world datasets, building analytical
+              dashboards, and creating data pipelines. I love turning raw data
+              into meaningful insights and building solutions that drive
+              decision-making.
             </p>
           </div>
 
@@ -392,19 +331,16 @@
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <span class="timeline-date">Recent</span>
-              <h3 class="timeline-role">
-                Software Development Engineer (SDE) Intern
-              </h3>
-              <span class="timeline-company">EVAP</span>
+              <h3 class="timeline-role">Data Analytics Intern</h3>
+              <span class="timeline-company">Internship Experience</span>
               <ul class="timeline-description">
-                <li>Worked on backend development and data-driven features</li>
-                <li>Handled API integrations and structured data processing</li>
+                <li>Analyzed business data to identify trends and patterns</li>
+                <li>Built interactive dashboards using Power BI and Python</li>
                 <li>
-                  Collaborated with team members to improve system reliability
-                  and performance
+                  Created data pipelines for automated reporting and insights
                 </li>
                 <li>
-                  Gained practical experience in writing clean, scalable code
+                  Collaborated with teams to deliver data-driven recommendations
                 </li>
               </ul>
             </div>
@@ -837,6 +773,36 @@
             <div id="modalTechs" class="modal-tech-tags"></div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Keyboard Shortcuts Helper -->
+    <div id="shortcutsHelper" class="shortcuts-helper">
+      <div class="shortcuts-content">
+        <h3>Keyboard Shortcuts</h3>
+        <ul>
+          <li><kbd>H</kbd> - Go to Home</li>
+          <li><kbd>S</kbd> - Go to Skills</li>
+          <li><kbd>P</kbd> - Go to Projects</li>
+          <li><kbd>C</kbd> - Go to Contact</li>
+          <li><kbd>D</kbd> - Toggle Dark Mode</li>
+          <li><kbd>?</kbd> - Show/Hide Shortcuts</li>
+          <li><kbd>Esc</kbd> - Close Modals</li>
+        </ul>
       </div>
     </div>
 
