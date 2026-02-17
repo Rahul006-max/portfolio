@@ -8,6 +8,54 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// --- Hamburger Menu Toggle ---
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburgerBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  if (hamburger && navLinks) {
+    // Helper to sync aria-expanded state
+    function setMenuOpen(open) {
+      if (open) {
+        hamburger.classList.add("active");
+        navLinks.classList.add("mobile-open");
+      } else {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("mobile-open");
+      }
+      hamburger.setAttribute("aria-expanded", String(open));
+    }
+
+    hamburger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.contains("mobile-open");
+      setMenuOpen(!isOpen);
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll(".nav-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setMenuOpen(false);
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        hamburger.focus(); // Return focus to trigger for accessibility
+      }
+    });
+  }
+});
+
 // --- Dark Mode Toggle ---
 document.addEventListener("DOMContentLoaded", function () {
   const themeToggle = document.getElementById("themeToggle");

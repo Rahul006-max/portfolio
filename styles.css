@@ -4,7 +4,7 @@
   --bg-color: #f0f4f8; /* Light blue-grey */
   --surface-color: #ffffff;
   --text-primary: #1a1a1a;
-  --text-secondary: #555555;
+  --text-secondary: #4b5563; /* Improved from #555555 for WCAG AA */
   --border-color: #000000;
   --accent-color: #2563eb; /* Professional blue */
   --accent-secondary: #10b981; /* Data green */
@@ -36,7 +36,7 @@ body.dark-mode {
   --bg-color: #1e293b;
   --surface-color: #334155;
   --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
+  --text-secondary: #94a3b8; /* Improved from #cbd5e1 for better contrast on dark bg */
   --border-color: #ffffff;
   --accent-color: #2563eb;
   --accent-secondary: #10b981;
@@ -357,39 +357,7 @@ body.dark-mode header.scrolled .nav-link.active {
   box-shadow: 2px 2px 0px 0px rgba(255, 255, 255, 0.3);
 }
 
-/* Mobile Nav Tweak */
-@media (max-width: 768px) {
-  .navbar {
-    width: 90%;
-    top: 10px;
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
-  .nav-links {
-    white-space: nowrap;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .hero-image-container {
-    width: 250px;
-    height: 250px;
-    order: -1;
-  }
-}
+/* Mobile Nav Tweak - moved to responsive section at bottom */
 
 /* --- Hero Section --- */
 .hero {
@@ -538,7 +506,7 @@ body.dark-mode .stat-card:hover {
 }
 
 body.dark-mode .stat-label {
-  color: #9ca3af;
+  color: #94a3b8; /* Improved from #9ca3af for readability */
 }
 
 /* --- Hero Section (continued) --- */
@@ -644,7 +612,7 @@ body.dark-mode .typing-text {
 }
 
 body.dark-mode .hero-subtitle {
-  color: #cfcfcf;
+  color: #e2e8f0; /* Improved from #cfcfcf for AA contrast */
 }
 
 .hero-tagline {
@@ -710,15 +678,7 @@ body.dark-mode .hero-image-container::before {
   display: none;
 }
 
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 4.5rem;
-  }
-  .hero-image-container {
-    width: 350px;
-    height: 350px;
-  }
-}
+/* hero desktop sizing - moved to responsive section at bottom */
 
 /* --- Skills/Services (Bento Grid) --- */
 .bento-grid {
@@ -1368,7 +1328,7 @@ body.dark-mode .philosophy-card {
 
 .philosophy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 30px;
 }
 
@@ -1928,27 +1888,7 @@ body.dark-mode .learning-content p {
   color: #cbd5e1;
 }
 
-/* Mobile responsiveness for new sections */
-@media (max-width: 768px) {
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .chart-container {
-    height: 300px;
-  }
-
-  .learning-item {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .learning-item::after {
-    left: 29px;
-    top: 70px;
-  }
-}
+/* Mobile responsiveness for new sections - moved to responsive section at bottom */
 
 /* --- Scroll Progress Indicator --- */
 .scroll-progress {
@@ -2139,10 +2079,15 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
 }
 
-button:focus,
-a:focus {
-  outline: 2px solid #2563eb;
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #2563eb;
   outline-offset: 3px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
 }
 
 body.dark-mode input:focus,
@@ -2151,10 +2096,15 @@ body.dark-mode select:focus {
   box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
 }
 
-body.dark-mode button:focus,
-body.dark-mode a:focus {
-  outline: 2px solid #10b981;
+body.dark-mode button:focus-visible,
+body.dark-mode a:focus-visible {
+  outline: 3px solid #10b981;
   outline-offset: 3px;
+}
+
+body.dark-mode button:focus:not(:focus-visible),
+body.dark-mode a:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Dark mode button styles */
@@ -2604,63 +2554,7 @@ body.dark-mode .copy-notification {
   animation: shake 0.5s ease;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-  }
-
-  .navbar {
-    flex-wrap: wrap;
-  }
-
-  .scroll-progress {
-    height: 3px;
-  }
-
-  /* Scroll to top button - smaller on mobile */
-  .scroll-to-top {
-    width: 45px;
-    height: 45px;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  /* Back button - adjust for mobile */
-  .back-button {
-    width: 45px;
-    height: 45px;
-    top: 20px;
-    left: 20px;
-    pointer-events: auto;
-  }
-
-  /* Shortcuts helper - full width on mobile */
-  .shortcuts-helper {
-    left: 20px;
-    right: 20px;
-    max-width: calc(100% - 40px);
-    bottom: 20px;
-  }
-
-  .shortcuts-helper h3 {
-    font-size: 1rem;
-  }
-
-  .shortcuts-helper li {
-    font-size: 0.85rem;
-  }
-
-  /* Copy notification - adjust position */
-  .copy-notification {
-    top: 80px;
-    right: 20px;
-    left: 20px;
-    text-align: center;
-  }
-}
+/* Mobile adjustments - moved to responsive section at bottom */
 
 /* --- Section Reveal Animations --- */
 .section-reveal {
@@ -2736,13 +2630,7 @@ body.dark-mode header.scrolled {
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* --- Mobile Adjustments for New Features --- */
-@media (max-width: 768px) {
-  .learning-badge {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
+/* Mobile adjustments for new features - moved to responsive section at bottom */
 
 /* --- Toast Notification System --- */
 .toast {
@@ -2796,7 +2684,518 @@ body.dark-mode .toast.error {
   }
 }
 
-@media (max-width: 768px) {
+/* Toast mobile - moved to responsive section at bottom */
+
+/* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1200;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================================
+   COMPREHENSIVE MOBILE-FIRST RESPONSIVE SYSTEM
+   ============================================================ */
+
+/* ---- MOBILE: 0px - 767px ---- */
+@media (max-width: 767px) {
+  /* --- Container (P3: Consistency - uniform padding) --- */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* --- Typography (P1: Clarity - readable, no clutter) --- */
+  h1,
+  .hero h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.25;
+  }
+
+  h2,
+  .section-title {
+    font-size: 1.5rem !important;
+    padding: 8px 20px !important;
+    margin-bottom: 32px !important;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    min-height: 1.8em;
+  }
+
+  body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* --- Navbar / Hamburger (P9: Accessibility) --- */
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--surface-color);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 4px 4px 0 var(--border-color);
+    gap: 4px;
+    z-index: 1100;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+    min-height: 44px;
+    line-height: 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  /* --- Hero Section (P1: Clarity, P2: Visual Hierarchy) --- */
+  .hero {
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 24px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-image-container {
+    width: 160px;
+    height: 160px;
+    order: -1;
+  }
+
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    display: inline-block;
+    margin-bottom: 16px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  /* P2: Reduce visual clutter - hide tagline on small mobile */
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  /* P2: De-emphasize learning badge on mobile */
+  .learning-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    gap: 6px;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 var(--border-color);
+    margin-top: 12px;
+  }
+
+  /* P2: Visual Hierarchy - single dominant CTA */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    min-height: 48px;
+    margin-left: 0 !important;
+    justify-content: center;
+  }
+
+  /* Make primary CTA visually dominant */
+  .hero-buttons .btn-primary {
+    font-size: 1rem;
+    padding: 14px 24px;
+  }
+
+  /* Visually recede secondary buttons */
+  .hero-buttons .btn-secondary,
+  .hero-buttons .btn-download {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  /* --- Stats Section (P6: Proximity) --- */
+  .stats-section {
+    padding: 40px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 20px 12px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Skills / Bento Grid (P5: Alignment - single column) --- */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bento-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 0 var(--border-color);
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .bento-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .bento-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 0 14px 0;
+  }
+
+  .skill-list li {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  /* --- Sections (P3: Consistency, P6: Proximity) --- */
+  .section {
+    padding: 48px 0;
+  }
+
+  /* P10: Remove diagonal stripe pattern on mobile */
+  .section::before {
+    display: none;
+  }
+
+  main {
+    padding-top: 65px;
+  }
+
+  /* --- Portfolio / Projects (P5: Single column, left-aligned) --- */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-card {
+    border-radius: 20px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .portfolio-img {
+    height: 180px;
+  }
+
+  .portfolio-content {
+    padding: 20px 16px;
+    text-align: left;
+  }
+
+  .portfolio-content h3 {
+    font-size: 1.1rem;
+    line-height: 1.35;
+  }
+
+  .portfolio-role {
+    font-size: 0.75rem;
+  }
+
+  .tool-tag {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  /* --- Certifications (P3: Consistent card sizing) --- */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cert-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .cert-card h4 {
+    font-size: 1rem;
+  }
+
+  /* --- Contact (P8: Affordance, P6: Proximity) --- */
+  .contact-wrapper {
+    max-width: 100%;
+  }
+
+  .contact-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 14px;
+    font-size: 16px; /* Prevents iOS zoom */
+    border-radius: 10px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  /* --- Timeline (P5: Left-aligned, P6: Proximity) --- */
+  .timeline {
+    max-width: 100%;
+  }
+
+  .timeline::before {
+    left: 14px;
+  }
+
+  .timeline-item {
+    padding-left: 40px;
+    margin-bottom: 36px;
+  }
+
+  .timeline-marker {
+    left: 6px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-role {
+    font-size: 1.05rem;
+  }
+
+  .timeline-description li {
+    font-size: 0.9rem;
+  }
+
+  /* --- Modal (P1: Clarity on small screen) --- */
+  .modal {
+    padding: 12px 8px;
+  }
+
+  .modal-content {
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 var(--border-color);
+  }
+
+  .modal-header {
+    padding: 20px 16px 14px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+    padding-right: 36px;
+    line-height: 1.3;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-image {
+    height: 180px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .modal-section {
+    margin-bottom: 20px;
+  }
+
+  .modal-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .modal-section p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .modal-section ul li {
+    padding: 8px 0 8px 26px;
+    font-size: 0.92rem;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  /* --- Footer (P3: Consistency) --- */
+  footer {
+    padding: 36px 0 20px;
+    margin-top: 36px;
+  }
+
+  /* P8: Affordance - larger social tap targets */
+  .social-links {
+    gap: 16px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* --- Fixed Elements (P8: Affordance) --- */
+  .scroll-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 16px;
+    right: 16px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  .back-button {
+    width: 44px;
+    height: 44px;
+    top: 14px;
+    left: 14px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  /* --- Scroll Progress --- */
+  .scroll-progress {
+    height: 3px;
+  }
+
+  /* --- Shortcuts Helper (hidden on mobile - keyboard not primary) --- */
+  .shortcuts-helper {
+    display: none !important;
+  }
+
+  /* --- Copy Notification --- */
+  .copy-notification {
+    top: 70px;
+    right: 16px;
+    left: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* --- Toast (P7: Feedback) --- */
   .toast {
     bottom: 10px;
     right: 10px;
@@ -2804,4 +3203,458 @@ body.dark-mode .toast.error {
     padding: 14px 20px;
     font-size: 0.9rem;
   }
+
+  #toast {
+    min-width: auto;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    font-size: 0.9rem;
+  }
+
+  /* --- Dashboard --- */
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .chart-container {
+    height: 240px;
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .dashboard-card {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dashboard-select {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  /* --- Learning Timeline --- */
+  .learning-item {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .learning-item::after {
+    display: none;
+  }
+
+  .learning-icon {
+    width: 48px;
+    height: 48px;
+    box-shadow: 2px 2px 0 var(--border-color);
+  }
+
+  .learning-content {
+    padding: 20px 16px;
+    box-shadow: 3px 3px 0 var(--border-color);
+    text-align: left;
+  }
+
+  .learning-content h3 {
+    font-size: 1.05rem;
+  }
+
+  .learning-content p {
+    font-size: 0.9rem;
+  }
+
+  .learning-content .learning-badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  /* --- Philosophy (P11: Scalability) --- */
+  .philosophy-section {
+    padding: 48px 0;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .philosophy-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  .philosophy-item {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .philosophy-number {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .philosophy-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* --- Skill Bars --- */
+  .skill-bars-container {
+    gap: 20px;
+  }
+
+  .skill-bar-header {
+    font-size: 0.9rem;
+  }
+
+  .skill-bar-track {
+    height: 14px;
+  }
+
+  /* --- Buttons (P7: Feedback, P8: Affordance) --- */
+  .btn {
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+    transition: transform 0.1s ease;
+  }
+
+  .btn-view-project {
+    min-height: 48px;
+    padding: 12px 20px;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  .btn-view-project:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+    transition: transform 0.1s ease;
+  }
+
+  /* --- P10: Motion Discipline --- */
+  body::before,
+  body::after {
+    animation: none !important;
+    display: none;
+  }
+
+  .hero-image-container::before {
+    animation: none !important;
+  }
+
+  /* P12: Identity - maintain borders/shadows but reduce 3D tilt */
+  .bento-card:hover,
+  .portfolio-card:hover,
+  .cert-card:hover {
+    transform: none;
+    box-shadow: 3px 3px 0 var(--border-color);
+  }
+
+  /* P7: Feedback - clean tap state */
+  .bento-card:active,
+  .portfolio-card:active,
+  .cert-card:active,
+  .stat-card:active {
+    transform: scale(0.98);
+    box-shadow: 1px 1px 0 var(--border-color);
+    transition: transform 0.1s ease;
+  }
+
+  /* --- Skills page hero fixes (P1: Clarity) --- */
+  .hero.skills-hero,
+  .hero[style] {
+    min-height: auto !important;
+    padding-top: 90px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .hero.skills-hero .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  /* --- Section separators (P6: Proximity, P12: Identity) --- */
+  .stats-section {
+    border-top-width: 1.5px;
+    border-bottom-width: 1.5px;
+  }
+
+  /* --- About section inline text fix (P5: Alignment) --- */
+  .section .container > div[style*="text-align: center"] p {
+    text-align: left !important;
+  }
+}
+
+/* ---- TABLET: 768px - 1023px ---- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* --- Container --- */
+  .container {
+    padding: 0 24px;
+  }
+
+  /* --- Navbar --- */
+  .navbar {
+    width: auto;
+    max-width: calc(100% - 48px);
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* --- Hero Section --- */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-image-container {
+    width: 220px;
+    height: 220px;
+    order: -1;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* --- Stats --- */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* --- Skills / Bento Grid --- */
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* --- Portfolio / Projects --- */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* --- Certifications --- */
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* --- Dashboard --- */
+  .dashboard-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .chart-container {
+    height: 350px;
+  }
+
+  /* --- Philosophy --- */
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- Section --- */
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* ---- DESKTOP: 1024px and above ---- */
+@media (min-width: 1024px) {
+  /* --- Container --- */
+  .container {
+    padding: 0 40px;
+    max-width: 1200px;
+  }
+
+  /* --- Hero --- */
+  .hero-content {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .hero-image-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  /* --- Stats --- */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* --- Skills / Bento Grid --- */
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* --- Portfolio / Projects --- */
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* --- Certifications --- */
+  .cert-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+
+  /* --- Contact Form --- */
+  .contact-wrapper {
+    max-width: 600px;
+  }
+}
+
+/* ---- LARGE DESKTOP: 1280px+ ---- */
+@media (min-width: 1280px) {
+  .hero-image-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+/* ---- PREFERS REDUCED MOTION ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .typing-text {
+    animation: none !important;
+    border-right: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ---- TOUCH DEVICE: disable hover effects ---- */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .btn-secondary:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .btn-view-project:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .btn-download:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 #10b981;
+  }
+
+  .bento-card:hover {
+    transform: none;
+  }
+
+  .portfolio-card:hover {
+    transform: none;
+  }
+
+  .cert-card:hover {
+    transform: none;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .hero-badge:hover {
+    animation: none;
+  }
+
+  body.dark-mode .btn:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px white;
+  }
+
+  body.dark-mode .btn-primary:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px white;
+  }
+
+  body.dark-mode .btn-view-project:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px white;
+  }
+}
+
+/* ---- WORD BREAK / OVERFLOW PREVENTION ---- */
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a,
+li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Prevent horizontal scrollbar */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
