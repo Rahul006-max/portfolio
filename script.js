@@ -43,6 +43,65 @@ window.addEventListener("scroll", function () {
       (scrollTop / (documentHeight - windowHeight)) * 100;
     scrollProgress.style.width = scrollPercentage + "%";
   }
+
+  // Add background to navbar after scrolling 80px
+  const header = document.querySelector("header");
+  if (header) {
+    if (window.scrollY > 80) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+});
+
+// --- Rotating Tagline ---
+document.addEventListener("DOMContentLoaded", function () {
+  const taglines = [
+    "I turn messy data into decisions.",
+    "I build pipelines that scale.",
+    "Clarity over complexity.",
+    "From raw data to real impact.",
+  ];
+
+  const taglineElement = document.getElementById("rotatingTagline");
+  if (taglineElement) {
+    let currentIndex = 0;
+
+    function updateTagline() {
+      taglineElement.textContent = taglines[currentIndex];
+      currentIndex = (currentIndex + 1) % taglines.length;
+    }
+
+    // Set initial tagline
+    updateTagline();
+
+    // Rotate every 3 seconds
+    setInterval(updateTagline, 3000);
+  }
+});
+
+// --- Section Reveal Animations ---
+document.addEventListener("DOMContentLoaded", function () {
+  const revealElements = document.querySelectorAll(".section-reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
 });
 
 // Active section highlighting in navbar
@@ -593,3 +652,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// --- Toast Notification System ---
+function showToast(message, type) {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.innerText = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+// --- EmailJS Contact Form Integration ---
+(function () {
+  // Initialize EmailJS with public key
+  emailjs.init("18X_7-S7TiT_zL--f");
+
+  // Get the contact form
+  const form = document.getElementById("contact-form");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const button = form.querySelector("button[type='submit']");
+      const originalText = button.innerText;
+
+      // Disable button and show loading state
+      button.disabled = true;
+      button.innerText = "Sending...";
+
+      // Send form using EmailJS
+      emailjs
+        .sendForm("service_557n047", "template_16tkzjt", this)
+        .then(() => {
+          showToast("Message sent successfully!", "success");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("EmailJS Error:", error);
+          showToast("Something went wrong. Please try again.", "error");
+        })
+        .finally(() => {
+          // Re-enable button and restore original text
+          button.disabled = false;
+          button.innerText = originalText;
+        });
+    });
+  }
+})();
