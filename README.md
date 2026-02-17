@@ -11,7 +11,7 @@
 
 Neo-Brutalist portfolio. Built with HTML, CSS, JavaScript. Zero frameworks.
 
-LIVE: https://rahul006-max.github.io/portfolio/
+LIVE: https://portfolio-gules-ten-39.vercel.app/
 
 ---
 
@@ -162,7 +162,6 @@ vercel --prod
 
 Rahul P  
 https://github.com/Rahul006-max  
-https://rahul006-max.github.io/portfolio/
 
 ---
 
